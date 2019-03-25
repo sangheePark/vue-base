@@ -1,4 +1,5 @@
 # vscode ex list
+```bash
    Apollo GraphQL
    Docker
    ESLint
@@ -10,6 +11,7 @@
    View In Browser
    Vue 2 Snippets
    vue-beautify
+```   
 # ESlint Auto save 
 File -> preference -> setting ->  Auto Fix On Save check
 
