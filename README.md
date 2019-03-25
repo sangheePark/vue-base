@@ -1,10 +1,11 @@
 # vue-base
 
 > vue base config
+> 필요한거 node.js
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
