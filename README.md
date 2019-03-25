@@ -5,6 +5,7 @@
 # install
 
 node.js(10.x)
+
 npm install -g vue-cli
 
 vue init webpack
