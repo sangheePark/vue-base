@@ -6,6 +6,7 @@
 
 node.js(10.x)
 
+```bash
 npm install -g vue-cli
 
 vue init webpack
@@ -22,6 +23,7 @@ vue init webpack
 ? Pick a test runner karma
 ? Setup e2e tests with Nightwatch? Yes
 ? Should we run `npm install` for you after the project has been created? (recommended) npm
+```
 
 ## Build Setup
 
