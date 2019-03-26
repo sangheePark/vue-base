@@ -39,11 +39,12 @@ vue init webpack
 ? Pick a test runner karma
 ? Setup e2e tests with Nightwatch? Yes
 ? Should we run `npm install` for you after the project has been created? (recommended) npm
+
+npm install vuex --save
+npm install js-cookie --save
+npm install vue-i18n --save
+
 ```
-
-npm install vuex
-
-````
 
 ## Build Setup
 
@@ -68,6 +69,6 @@ npm run e2e
 
 # run all tests
 npm test
-````
+```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
