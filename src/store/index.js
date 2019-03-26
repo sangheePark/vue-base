@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import AppStore from './modules/appStore'
 import UserStore from './modules/useStorer'
-import Getters from './getters'
+import StoreGetter from './sotreGetter'
 
 Vue.use(Vuex)
 
@@ -11,7 +11,7 @@ const store = new Vuex.Store({
     AppStore,
     UserStore
   },
-  Getters
+  StoreGetter
 })
 
 export default store
