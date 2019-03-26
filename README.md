@@ -1,8 +1,21 @@
-# vue-base
+# vscode ex list
+```bash
+   Apollo GraphQL
+   Docker
+   ESLint
+   HTML Snippets
+   JS-CSS-HTML Formatter
+   Lodash Snippets
+   Prettier - Code formatter
+   Vetur
+   View In Browser
+   Vue 2 Snippets
+   vue-beautify
+```   
+# ESlint Auto save 
+File -> preference -> setting ->  Auto Fix On Save check
 
-> vue base config
-
-# install
+# npm install
 
 node.js(10.x)
 
@@ -23,6 +36,9 @@ vue init webpack
 ? Pick a test runner karma
 ? Setup e2e tests with Nightwatch? Yes
 ? Should we run `npm install` for you after the project has been created? (recommended) npm
+```
+
+npm install vuex
 ```
 
 ## Build Setup
