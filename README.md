@@ -1,4 +1,5 @@
 # vscode ex list
+
 ```bash
    Apollo GraphQL
    Docker
@@ -11,9 +12,11 @@
    View In Browser
    Vue 2 Snippets
    vue-beautify
-```   
-# ESlint Auto save 
-File -> preference -> setting ->  Auto Fix On Save check
+```
+
+# vscode ESlint Auto save config
+
+vscodesetting 참조
 
 # npm install
 
@@ -39,7 +42,8 @@ vue init webpack
 ```
 
 npm install vuex
-```
+
+````
 
 ## Build Setup
 
@@ -64,6 +68,6 @@ npm run e2e
 
 # run all tests
 npm test
-```
+````
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

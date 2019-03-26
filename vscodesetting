@@ -1,0 +1,44 @@
+## eslint 관련 autoFixOnSave 관련 설정
+ 
+File -> preference -> setting ->  Commonly Used -> 하단 Edit int setting.json click -> 아래 내용 붙여 넣기
+
+{
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  // 추가
+  "eslint.enable": true,
+
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.options": { "extensions": [".html", ".js", ".vue", ".jsx"] },
+  // "eslint.validate": [
+  //   "javascript",
+  //   "javascriptreact",
+  //   {
+  //     "language": "vue",
+  //     "autoFix": true
+  //   }
+  // ],
+
+  // 추가
+  "eslint.validate": [
+    { "language": "html", "autoFix": true },
+    { "language": "vue", "autoFix": true },
+    { "language": "javascript", "autoFix": true },
+    { "language": "javascriptreact", "autoFix": true }
+  ],
+
+  "javascript.format.enable": false,
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+
+  // 추가
+  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.html": "none",
+
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary"
+}
