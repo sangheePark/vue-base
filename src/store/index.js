@@ -5,7 +5,6 @@ import UserStore from './modules/useStorer'
 import StoreGetter from './sotreGetter'
 
 Vue.use(Vuex)
-
 const store = new Vuex.Store({
   modules: {
     AppStore,
