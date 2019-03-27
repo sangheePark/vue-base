@@ -7,6 +7,7 @@ import store from './store'
 import i18n from './lang' //다국어
 import Cookies from 'js-cookie'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+import './icons' // icon
 
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -62,7 +63,6 @@ const router = new VueRouter({
 })
 export default router
 
-
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 // permission judge function
@@ -72,11 +72,19 @@ NProgress.configure({ showSpinner: false }) // NProgress Configuration
 //   return roles.some(role => permissionRoles.indexOf(role) >= 0)
 // }
 
-// const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
+const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
-  console.log('check')
-  next()
+  if (store.getters.isLogin) {
+    next()
+  } else {
+    if (whiteList.indexOf(to.path) !== -1) {
+      next()
+    } else {
+      next(`/login?redirect=${to.path}`)
+      NProgress.done()
+    }
+  }
   // if (store.getters.isLogin()) {
   //   // determine if there has token
   //   console.log('get')
