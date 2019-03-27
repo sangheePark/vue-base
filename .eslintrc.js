@@ -13,6 +13,8 @@ module.exports = {
 
     // add your custom rules here
     rules: {
+        'no-console': 'off',
+        'no-useless-escape': 0,
         'indent': [2, 2, {
             'SwitchCase': 1
         }]
