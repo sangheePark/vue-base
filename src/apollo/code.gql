@@ -1,0 +1,10 @@
+query codeQuery($filter: PageSearch_CodeInput!) {
+    filterCodesJPA(filter: $filter){
+      content{
+        value
+        label
+      }
+      totalElements
+    }
+  }  
+}

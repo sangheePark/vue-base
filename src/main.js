@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import apolloProvider from './apollo'
 import i18n from './lang' //다국어
 import Cookies from 'js-cookie'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
@@ -37,6 +38,7 @@ new Vue({
   router,
   store,
   i18n,
+  provide: apolloProvider,
   components: { App },
   template: '<App/>'
 })

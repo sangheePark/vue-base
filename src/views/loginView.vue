@@ -11,7 +11,7 @@
         <h3 class="title">
           {{ $t('login.title') }}
         </h3>
-        <!-- <lang-select class="set-language" /> -->
+        <lang-select class="set-language" />
       </div>
 
       <el-form-item prop="username">
@@ -37,20 +37,25 @@
           :placeholder="$t('login.password')"
           name="password"
           auto-complete="on"
-          @keyup.enter.native="handleLogin"
+          @keyup.enter.native="doLogin"
         />
         <span 
           class="show-pwd" 
-          @click="showPwd">
+          @click="togglePassword">
           <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
 
+      <el-row>
+        <el-col :span="12">
+          <el-checkbox v-model="isSaveId">save id</el-checkbox>
+        </el-col>
+      </el-row>
       <el-button 
         :loading="loading" 
         type="primary" 
         style="width:100%;margin-bottom:30px;" 
-        @click.native.prevent="handleLogin">
+        @click.native.prevent="doLogin">
         {{ $t('login.logIn') }}
       </el-button>
 
@@ -65,36 +70,19 @@
           </span>
           <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
         </div>
-
-        <el-button 
-          class="thirdparty-button" 
-          type="primary" 
-          @click="showDialog=true">
-          {{ $t('login.thirdparty') }}
-        </el-button>
       </div>
     </el-form>
 
-    <el-dialog 
-      :title="$t('login.thirdparty')" 
-      :visible.sync="showDialog">
-      {{ $t('login.thirdpartyTips') }}
-      <br>
-      <br>
-      <br>
-      <!-- <social-sign /> -->
-    </el-dialog>
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
-// import LangSelect from '@/components/LangSelect'
-// import SocialSign from './socialsignin'
+import LangSelect from '@/components/LangSelect'
 
 export default {
   name: 'Login',
-  components: {},
+  components: { LangSelect },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
@@ -121,7 +109,7 @@ export default {
       },
       passwordType: 'password',
       loading: false,
-      showDialog: false,
+      isSaveId: false,
       redirect: undefined
     }
   },
@@ -140,46 +128,27 @@ export default {
     // window.removeEventListener('hashchange', this.afterQRScan)
   },
   methods: {
-    showPwd() {
+    togglePassword() {
       if (this.passwordType === 'password') {
-        this.passwordType = ''
+        this.passwordType = 'text'
       } else {
         this.passwordType = 'password'
       }
     },
-    handleLogin() {
+    doLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          // doLogin(this.loginForm).then(() => {
-          //   this.loading = false
-          //   this.$router.push({ path: this.redirect || '/' })
-          // }).catch(() => {
-          //   this.loading = false
-          // })
+          this.$store.dispatch('login', this.loginForm).then(() => {
+            this.$router.push({ path: '/' })
+          }).catch(() => {
+            this.loading = false
+          })
         } else {
           // console.log('error submit!!')
           return false
         }
       })
-    },
-    afterQRScan() {
-      // const hash = window.location.hash.slice(1)
-      // const hashObj = getQueryObject(hash)
-      // const originUrl = window.location.origin
-      // history.replaceState({}, '', originUrl)
-      // const codeMap = {
-      //   wechat: 'code',
-      //   tencent: 'code'
-      // }
-      // const codeName = hashObj[codeMap[this.auth_type]]
-      // if (!codeName) {
-      //   alert('第三方登录失败')
-      // } else {
-      //   this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
-      //     this.$router.push({ path: '/' })
-      //   })
-      // }
     }
   }
 }
@@ -196,6 +165,12 @@ $cursor: #fff;
     &::first-line {
       color: $light_gray;
     }
+  }
+}
+.el-row {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -290,11 +265,6 @@ $light_gray: #eee;
     color: $dark_gray;
     cursor: pointer;
     user-select: none;
-  }
-  .thirdparty-button {
-    position: absolute;
-    right: 0;
-    bottom: 6px;
   }
 }
 </style>

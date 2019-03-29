@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie'
+import { SELECT_LANG } from './appMutationType'
+
 
 const app = {
   state: {
@@ -10,7 +12,11 @@ const app = {
     language: Cookies.get('language') || 'ko',
     size: Cookies.get('size') || 'medium'
   },
-  mutations: {},
+  mutations: {
+    [SELECT_LANG](state, language) {
+      state.language = language
+    }
+  },
   actions: {}
 }
 

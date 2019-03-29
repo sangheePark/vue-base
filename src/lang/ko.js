@@ -1,11 +1,12 @@
 export default {
+  app: {
+    selectLang: '언어 설정을 변경하였습니다.'
+  },
   login: {
-    title: '문대진 바보',
-    logIn: 'Log in',
-    username: 'Username',
-    password: 'Password',
-    any: 'any',
-    thirdparty: 'Or connect with',
-    thirdpartyTips: 'Can not be simulated on local, so please combine you own business simulation! ! !'
+    title: '로그인 화면',
+    logIn: '로그인',
+    username: '아이디',
+    password: '비밀번호',
+    any: 'any'
   }
 }

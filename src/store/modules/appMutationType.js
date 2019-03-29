@@ -1,0 +1,7 @@
+export const SELECT_LANG = 'SELECT_LANG'
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
+
+export default {
+  [SELECT_LANG]: SELECT_LANG,
+  [TOGGLE_SIDEBAR]: TOGGLE_SIDEBAR
+}
